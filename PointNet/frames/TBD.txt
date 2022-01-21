@@ -1,0 +1,25 @@
+TBD:
+
+Normalization with camera distance?
+
+
+ 
+Segmentation improvement
+
+Add additional features
+Features rotation invariant????
+
+Add constrains with respect to distances between vertices
+
+Implement other classifier: kNN, ANN, SVM, random forest
+Use 2D contour in classification
+
+Study the influence of Kg, # of hisogram bins, distance, histogram normalization
+
+Validate the method on simple geometric shapes (sphere, cube, ...)
+=======================================================================
+ALLREADY DONE:
+Implement leave one out distance-based classification scheme for entire database 
+Total Error Evaluation
+Index-Gesture Mapping
+Nullify pi/2 from histogram – background influence

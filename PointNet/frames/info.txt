@@ -1,0 +1,20 @@
+#	File		Hand
+
+1.	01.pmd		right hand
+2.	02.pmd		right hand
+3.	03.pmd		right hand
+4.	04.pmd		right hand
+5.	05.pmd		left hand
+6.	06.pmd		left hand
+7.	07l.pmd		left hand
+8.	07r.pmd		right hand
+9.	08.pmd		right hand
+10.	09.pmd		right hand
+11.	10.pmd		right hand
+12.	11.pmd		right hand
+
+
+* 6 Static gestures
+* 20 frames/geture selected => corresponding amp, dst, flg and int files
+* For Camcube 3.0, "dst", "int" and "amp" info are 200x200 double precision (8 bytes)and "flg" is   200x200 uint32 (4 bytes). For examle 01_dst.bin will ocupy 20 x 6 x 200x200 x 8 bytes = 38,400,000 bytes = 38 MB
+* The four matrices that will be saved to the four corresponding files columwise. Each matrix is   of form: [frame1_info frame2_info ... framen_info] where info is dst int amp or flg.

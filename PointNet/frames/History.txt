@@ -1,0 +1,2 @@
+v1.1 - improved segmentation, classification with variable no of frames per gesture, tests for Kg and distance influences added, RecRate ?
+v1.0 - all stages implemented
