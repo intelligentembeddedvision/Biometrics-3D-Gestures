@@ -1,3 +1,4 @@
+import imageio
 import pyrealsense2 as rs
 import numpy as np
 
@@ -15,8 +16,8 @@ def record_rgbd():
     # initialize camera configuration
     print("[INFO] begin initialization of RS camera")
     config = rs.config()
-    config.enable_stream(rs.stream.depth, W, H, rs.format.z16, 30)
-    config.enable_stream(rs.stream.color, W, H, rs.format.bgr8, 30)
+    config.enable_stream(rs.stream.depth, W, H, rs.format.z16, 60)
+    config.enable_stream(rs.stream.color, W, H, rs.format.rgb8, 30)
 
     pipeline.start(config)
 
@@ -29,21 +30,27 @@ def record_rgbd():
     colorizer = rs.colorizer()
 
     try:
-        # wait for camera to give a signal that frames are available
-        frames = pipeline.wait_for_frames()
-        # align depth to color
-        aligned_frames = align.process(frames)
-        aligned_depth_frame = aligned_frames.get_depth_frame()
-        # colorize depth frame
-        depth_color_frame = colorizer.colorize(aligned_depth_frame)
-        color_frame = aligned_frames.get_color_frame()
+        # just wait for the camera to have a real good frame for preprocessing
+        for i in range(100):
+            print(i)
+            # wait for camera to give a signal that frames are available
+            frames = pipeline.wait_for_frames()
+            # align depth to color
+            aligned_frames = align.process(frames)
+            aligned_depth_frame = aligned_frames.get_depth_frame()
+            # colorize depth frame
+            depth_color_frame = colorizer.colorize(aligned_depth_frame)
+            color_frame = aligned_frames.get_color_frame()
 
-        if not depth_color_frame or not color_frame:
-            raise RuntimeError("[ERROR] Could not acquire depth or color frames.")
+            if not depth_color_frame or not color_frame:
+                raise RuntimeError("[ERROR] Could not acquire depth or color frames.")
 
-        # transform frames to usable arrays for both opencv and the hand extraction program
-        depth_image = np.asanyarray(depth_color_frame.get_data())
-        color_image = np.asanyarray(color_frame.get_data())
+            # transform frames to usable arrays for both opencv and the hand extraction program
+            depth_image = np.asanyarray(depth_color_frame.get_data())
+            color_image = np.asanyarray(color_frame.get_data())
+
+            imageio.imsave('color.jpg', color_image)
+            imageio.imsave('depth.jpg', depth_image)
 
     finally:
         pipeline.stop()
