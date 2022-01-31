@@ -22,14 +22,23 @@ align_to = rs.stream.color
 align = rs.align(align_to)
 count = 0
 
+frameset = []
 try:
-    # wait for good frames to come in
-    while count < 2000:
-        count += 1
-
-    # Wait for the next set of frames from the camera
-    frames = pipeline.wait_for_frames()
-    colorized = colorizer.process(frames)
+    for i in range(100):
+        # wait for camera to give a signal that frames are available
+        # apply a series of filters for better depth image quality
+        frames = pipeline.wait_for_frames()
+        frameset.append(frames.get_depth_frame())
+        aligned_frames = align.process(frames)
+        aligned_depth_frame = aligned_frames.get_depth_frame()
+        color_frame = aligned_frames.get_color_frame()
+        hole_filling = rs.hole_filling_filter()
+        spatial = rs.spatial_filter()
+        temporal = rs.temporal_filter()
+        frame = frameset[i]
+        frame = spatial.process(frame)
+        frame = temporal.process(frame)
+        frame = hole_filling.process(frame)
 
     # Create save_to_ply object
     ply = rs.save_to_ply("pointcloud.ply")
@@ -40,7 +49,7 @@ try:
 
     print("Saving point cloud...")
     # Apply the processing block to the frameset which contains the depth frame and the texture
-    ply.process(colorized)
+    ply.process(frame)
     print("Done")
 
 finally:
