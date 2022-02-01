@@ -2,8 +2,6 @@ import numpy as np
 import pyrealsense2 as rs
 
 # according to https://roboticsknowledgebase.com/wiki/sensing/realsense/ this is the optimal depth resolution
-from hand_extractor import hand_extractor, visualizer
-
 W = 848
 H = 480
 
@@ -40,9 +38,9 @@ print("[INFO] launching RS camera, taking pictures")
 frameset = []
 depth_to_disparity = rs.disparity_transform(True)
 disparity_to_depth = rs.disparity_transform(False)
-threshold = rs.threshold_filter()
-threshold.set_option(rs.option.min_distance, 0.1)
-threshold.set_option(rs.option.max_distance, 0.5)
+# threshold = rs.threshold_filter()
+# threshold.set_option(rs.option.min_distance, 0.1)
+# threshold.set_option(rs.option.max_distance, 0.5)
 # take a series of frames for better filtering
 for i in range(100):
     frames = pipeline.wait_for_frames()
@@ -63,7 +61,7 @@ for i in range(100):
     frame = temporal.process(frame)
     frame = disparity_to_depth.process(frame)
     frame = hole_filling.process(frame)
-    frame = threshold.process(frame)
+    # frame = threshold.process(frame)
 
 if not frame or not color_frame:
     raise RuntimeError("[ERROR] Could not acquire depth or color frame.")

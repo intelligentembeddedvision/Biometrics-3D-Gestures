@@ -1,4 +1,3 @@
-import cv2
 import numpy as np
 
 from hand_extractor import hand_extractor, visualizer

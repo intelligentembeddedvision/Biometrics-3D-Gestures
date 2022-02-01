@@ -636,9 +636,9 @@ def run_on_sample(dist_data, image_data=None):
 
     f_sample = hd_filter(dist_data)
 
-    # avg_dist = f_sample.mean()
-    # foreground_mask = f_sample < avg_dist
-    #f_sample_person = f_sample * foreground_mask
+    avg_dist = f_sample.mean()
+    foreground_mask = f_sample < avg_dist
+    f_sample_person = f_sample * foreground_mask
 
     f_sample_person_box = hd_rectangle(f_sample)
     h_sample, flag = hd_getClosestPoint(f_sample_person_box)
