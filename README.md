@@ -5,7 +5,7 @@ This work is based on many scientific papers from UPT :
 - [S. G. C. C. P.-C. I. Mîrșu Radu, "A PointNet based Solution for 3D Hand Gesture Recognition" - Sensors, vol. 20, no. 11, p. 3226, 2020.](https://www.mdpi.com/1424-8220/20/11/3226)
 - [G. Simion and C.-D. Caleanu, "Multi-stage 3D segmentation for ToF based gesture recognition system" - 2014 11th International Symposium on Electronics and Telecommunications (ISETC), pp. 1-4, 2014.](https://ieeexplore.ieee.org/document/7010800/)
 - [G. Simion and C.-D. Caleanu, "A ToF 3D database for hand gesture recognition" - 2012 10th International Symposium on Electronics and Telecommunications, pp. 363-366, 2012.](https://ieeexplore.ieee.org/abstract/document/6408145)
-- [Negrau Claudiu Antonio, "A new approach for 3D Hand Gesture Segmentation and Visualization", 2021]
+- Negrau Claudiu Antonio, "A new approach for 3D Hand Gesture Segmentation and Visualization", 2021
 
 ## Summary
 
