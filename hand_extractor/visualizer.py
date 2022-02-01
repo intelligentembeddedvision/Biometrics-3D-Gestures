@@ -18,7 +18,7 @@ def cloud3show(points, plot_now=True):
 def imshow(image, plot_now=True, new_figure=True):
     if new_figure:
         plt.figure()
-    img = plt.imshow(image, cmap="inferno")
+    plt.imshow(image, cmap="inferno")
     if plot_now:
         plt.show()
 
