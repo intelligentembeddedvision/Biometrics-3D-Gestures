@@ -1,5 +1,7 @@
 # Real-Time hand segmentation using the Intel RealSense D435i
 
+https://intelligentembeddedvision.upt.ro/hand-gestures/
+
 This work is based on many scientific papers from UPT : 
 
 - [S. G. C. C. P.-C. I. Mîrșu Radu, "A PointNet based Solution for 3D Hand Gesture Recognition" - Sensors, vol. 20, no. 11, p. 3226, 2020.](https://www.mdpi.com/1424-8220/20/11/3226)
@@ -9,11 +11,15 @@ This work is based on many scientific papers from UPT :
 
 ## Summary
 
+Gesture recognition represents nowadays an intensively researched area due to several factors. One of the most important reason is represented by the numerous applications of this technology in various domains like robotics, games, medicine or automotive. Additionally, the apparition of 3D image acquisition techniques (stereovision, projected-light, time-of-flight, etc.) overcomes the limitations of the traditional 2D approaches, and, combined with the larger availability of the 3D sensors (Microsoft Kinect, Intel RealSense, PMD CamCube, etc.) sparkled the interest in this domain. Moreover, in many computer vision tasks, the traditional/statistic top approaches were outperformed by deep neural network-based solutions. Having in view these considerations, we proposed a deep neural network solution, by employing the PointNet architecture, for the problem of hand gesture recognition form depth data produced by a Time of Flight sensor. We create a custom hand gesture dataset, then proposed a multistage hand segmentation by designing filtering, clustering, finding the hand in the volume of interest and hand-forearm segmentation. For comparison purpose, two equivalent datasets were tested: a 3D point cloud dataset and a 2D image dataset, obtained from the same stream. Besides the advantages of the 3D technology, the accuracy of the 3D method using PointNet is proven to outperform in all circumstances the 2D method that employs a deep neural network as well.
+
+## Evolution
+
 As more and more people tend to work using Artificial Intelligence, the possibilities begin to be endless. 
 The staggering evolutions that came in over the years made lots of things obsolete, including certain researches made before 2020.
 
 The dataset used in this project, at that time, was using a camera that would be out of today's standards (PMD[vision] CamCube 3.0 ToF camera) for lots of new scientific researchers in the domain.
-This updated code (and repository) aims to practice hand segmentation in real-time using an Intel RealSense D435i, a camera that is a lot affordable and has a better API that it's predecessor.
+This updated code (and repository) aims to practice hand segmentation in real-time using an Intel RealSense D435i, a camera that is a lot affordable and has a better API than the camera previously used.
 
 ## Potential upgrades to this project
 
